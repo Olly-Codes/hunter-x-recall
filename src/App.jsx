@@ -3,6 +3,7 @@ import ScoreBoard from "./components/ScoreBoard";
 import Board from "./components/Board";
 import WinnerModal from "./components/WinnerModal";
 import Header from "./components/Header";
+import "./styles/styles.css";
 
 function App() {
 

@@ -1,0 +1,74 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+:root {
+  --green-darkest-bg: #0d1410;
+  --green-dark-bg: #16261d;
+  --green-light-bg: #1f3527;
+  --green-border: #2b4434;
+  --green-dim: #1a2e22;
+
+  --gold-dim: #8a6f31;
+  --gold: #c9a24b;
+  --gold-lightt: #e8c873;
+
+  --text-primary: #e9e0c4;
+  --text-secondary: #a89b78;
+
+  --danger: #7a2e22;
+}
+
+/* ----- HEADER */
+.header {
+    width: 100%;
+    padding: 30px 40px;
+    background: var(--green-dark-bg);
+    border-bottom: 5px solid var(--gold);
+
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.examiner-pfp {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.examiner-pfp img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+}
+
+.exam-text {
+    color: var(--text-primary);
+}
+
+.exam-text p:first-child {
+    color: var(--text-secondary);
+    text-transform: uppercase;
+}
+
+.exam-text h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+.exam-text h1 span {
+    color: var(--gold);
+    text-transform: none;
+    font-style: italic;
+}
+
+/* ----- SCOREBOARD */
