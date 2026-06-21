@@ -1,7 +1,7 @@
 # Hunter x Recall
 A React memory game themed around Hunter x Hunter, where players try to recall characters they have not clicked before and acheive the highest score possible.
 <br>
-Live Preview:
+Live Preview: https://hunter-x-recall.vercel.app/
 
 ## Overview
 Hunter x Recall uses a open source API known as Jikan to fetch Hunter x Hunter character data. Each click from the player scores a point and re-shuffled the board. However, if the player clicks a character that has already been chosen, the round ends and a new round starts with the best score recorded if the score was beaten. If every called is recalled without error, the player passes the trial
