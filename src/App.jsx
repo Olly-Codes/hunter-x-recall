@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import ScoreBoard from "./components/ScoreBoard";
 import Board from "./components/Board";
+import WinnerModal from "./components/WinnerModal";
 
 function App() {
 
+  const [isWinner, setIsWinner] = useState(false);
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [chosenCharacters, setChosenCharacters] = useState([]);
@@ -61,12 +63,9 @@ function App() {
       },
     ]
   );
-
   useEffect(() => {
     if (score === characters.length) {
-      alert("You won!");
-      setScore(0);
-      setChosenCharacters([]);
+      setIsWinner(true);
     }
   }, [score]);
 
@@ -98,11 +97,18 @@ function App() {
     }
     setCharacters(shuffledChars);
   }
+
+  function handleReset() {
+    setScore(0);
+    setChosenCharacters([]);
+    setIsWinner(false);
+  }
   return (
     <>
       <h1>Hunter x Recall</h1>
       <ScoreBoard score={score} bestScore={bestScore}/>
       <Board characters={characters} handleClick={handleClick} />
+      {isWinner ? <WinnerModal handleReset={handleReset} /> : ""}
     </>
   )
 }
