@@ -226,3 +226,48 @@ body, html {
 .winner-modal button:hover {
     background-color: var(--green-dim);
 }
+
+/* ----- MEDIA QUERIES */
+@media only screen and (max-width: 768px) {
+    .header {
+        padding: 10px 10px;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .examiner-pfp {
+        width: 80px;
+        height: 80px;
+    }
+
+    .exam-text p {
+        font-size: 0.7rem;
+    }
+
+    .exam-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .score-board {
+        padding: 20px 10px;
+        gap: 5px;
+    }
+
+    .stat {
+        font-size: 0.8rem;
+        padding: 10px;
+    }
+
+    .actual-stat {
+        font-size: 1.5rem;
+    }
+
+    .board {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .char-card {
+        width: 150px;
+    }
+}
