@@ -65,7 +65,7 @@ function App() {
     ]
   );
   useEffect(() => {
-    if (score === 1) {
+    if (score === characters.length) {
       setIsWinner(true);
     }
   }, [score]);
