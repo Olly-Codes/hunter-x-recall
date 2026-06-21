@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ScoreBoard from "./components/ScoreBoard";
+import Board from "./components/Board";
 
 function App() {
 
@@ -65,7 +66,7 @@ function App() {
     if (score === characters.length) {
       alert("You won!");
       setScore(0);
-      setChosenCharacters(0);
+      setChosenCharacters([]);
     }
   }, [score]);
 
@@ -101,14 +102,7 @@ function App() {
     <>
       <h1>Hunter x Recall</h1>
       <ScoreBoard score={score} bestScore={bestScore}/>
-      <ul>
-        {characters.map((char) => {
-          return <li onClick={() => handleClick(char.id)} key={char.id}>
-            <img style={{ width: 100, height: 100 }} src={char.image} alt={char.name} />
-            <p>Name: {char.name}</p>
-          </li>
-        })}
-      </ul>
+      <Board characters={characters} handleClick={handleClick} />
     </>
   )
 }
