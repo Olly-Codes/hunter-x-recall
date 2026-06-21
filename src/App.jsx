@@ -112,6 +112,7 @@ function App() {
         characters={characters} 
         handleClick={handleClick}
         isWinner={isWinner}
+        score={score}
         handleReset={handleReset} 
       />
     </>
