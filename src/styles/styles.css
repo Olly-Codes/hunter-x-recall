@@ -27,6 +27,7 @@
 
 body, html {
     background-color: var(--green-darkest-bg);
+    position: relative;
 }
 
 /* ----- HEADER */
@@ -80,7 +81,6 @@ body, html {
 .score-board {
     width: 100%;
     padding: 40px;
-    position: relative;
 
     display: flex;
     justify-content: space-around;
@@ -169,7 +169,7 @@ body, html {
     left: 0;
     top: 0;
     width: 100%;
-    height: 110vh;
+    height: 100%;
     background-color: var(--overlay-dim);
 
     display: flex;
@@ -269,5 +269,9 @@ body, html {
 
     .char-card {
         width: 150px;
+    }
+
+    .overlay {
+        padding: 0 20px;
     }
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ScoreBoard from "./components/ScoreBoard";
 import Board from "./components/Board";
 import Header from "./components/Header";
+import WinnerModal from "./components/WinnerModal";
 import "./styles/styles.css";
 
 function App() {
@@ -109,14 +110,13 @@ function App() {
       <Header />
       <ScoreBoard
         score={score} 
-        bestScore={bestScore}
-        isWinner={isWinner}
-        handleReset={handleReset}  
+        bestScore={bestScore} 
       />
       <Board 
         characters={characters} 
         handleClick={handleClick}
       />
+      {isWinner && <WinnerModal score={score} handleReset={handleReset} />}
     </>
   )
 }
