@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ScoreBoard from "./components/ScoreBoard";
 import Board from "./components/Board";
 import WinnerModal from "./components/WinnerModal";
+import Header from "./components/Header";
 
 function App() {
 
@@ -105,7 +106,7 @@ function App() {
   }
   return (
     <>
-      <h1>Hunter x Recall</h1>
+      <Header />
       <ScoreBoard score={score} bestScore={bestScore}/>
       <Board characters={characters} handleClick={handleClick} />
       {isWinner ? <WinnerModal handleReset={handleReset} /> : ""}
