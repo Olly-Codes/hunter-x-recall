@@ -4,9 +4,11 @@ function Board({ characters, handleClick }) {
             <ul className="board">
                 {characters.map((char) => {
                     return (
-                        <li onClick={() => handleClick(char.id)} key={char.id}>
-                            <img className="char-img" style={{ width: 100, height: 100 }} src={char.image} alt={char.name} />
-                            <p className="char-name">Name: {char.name}</p>
+                        <li className="char-card" onClick={() => handleClick(char.id)} key={char.id}>
+                            <div className="img-wrapper">
+                                <img className="char-img" src={char.image} alt={char.name} />
+                            </div>
+                            <p className="char-name">{char.name}</p>
                         </li>
                     )
                 })}
