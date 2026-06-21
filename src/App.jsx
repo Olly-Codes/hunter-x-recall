@@ -31,7 +31,7 @@ function App() {
   }, []);
   
   useEffect(() => {
-    if (score === characters.length) {
+    if (characters.length > 0 && score === characters.length) {
       setBestScore(score)
       setIsWinner(true);
     }
