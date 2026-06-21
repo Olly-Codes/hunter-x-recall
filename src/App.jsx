@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ScoreBoard from "./components/ScoreBoard";
 
 function App() {
 
@@ -77,7 +78,6 @@ function App() {
       }
       setScore(0);
       setChosenCharacters([]);
-      alert("You already clicked on that character!");
     } else {
       setScore(prevScore => prevScore + 1);
       setChosenCharacters((prevChars) => {
@@ -100,10 +100,7 @@ function App() {
   return (
     <>
       <h1>Hunter x Recall</h1>
-      <div className="scoreBoard">
-        <p>Score: {score}</p>
-        <p>Best Score: {bestScore > 0 ? bestScore : score}</p>
-      </div>
+      <ScoreBoard score={score} bestScore={bestScore}/>
       <ul>
         {characters.map((char) => {
           return <li onClick={() => handleClick(char.id)} key={char.id}>
