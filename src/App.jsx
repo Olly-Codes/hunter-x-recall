@@ -107,13 +107,15 @@ function App() {
   return (
     <>
       <Header />
-      <ScoreBoard score={score} bestScore={bestScore}/>
+      <ScoreBoard
+        score={score} 
+        bestScore={bestScore}
+        isWinner={isWinner}
+        handleReset={handleReset}  
+      />
       <Board 
         characters={characters} 
         handleClick={handleClick}
-        isWinner={isWinner}
-        score={score}
-        handleReset={handleReset} 
       />
     </>
   )
