@@ -53,17 +53,20 @@ function App() {
         image: "/gon.webp"
       },
       {
-        id: 101,
-        name: "Raditz",
-        image: "/gon.webp"
-      },
-      {
         id: 3,
         name: "Android-18",
         image: "/gon.webp"
       },
     ]
   );
+
+  useEffect(() => {
+    if (score === characters.length) {
+      alert("You won!");
+      setScore(0);
+      setChosenCharacters(0);
+    }
+  }, [score]);
 
   const url = 'https://api.jikan.moe/v4/anime/11061/characters';
 
@@ -76,10 +79,10 @@ function App() {
       setChosenCharacters([]);
       alert("You already clicked on that character!");
     } else {
+      setScore(prevScore => prevScore + 1);
       setChosenCharacters((prevChars) => {
         return [...prevChars, id ];
       });
-      setScore(prevScore => prevScore + 1);
       shuffle(characters);
     }
   }
