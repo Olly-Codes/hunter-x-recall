@@ -24,6 +24,10 @@
   --danger: #7a2e22;
 }
 
+body, html {
+    background-color: var(--green-darkest-bg);
+}
+
 /* ----- HEADER */
 .header {
     width: 100%;
@@ -72,3 +76,36 @@
 }
 
 /* ----- SCOREBOARD */
+.score-board {
+    width: 100%;
+    padding: 40px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+.stat {
+    width: 100%;
+    background-color: var(--green-dark-bg);
+    color: var(--text-primary);
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid var(--green-border);
+
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+
+.stat:hover {
+    background-color: var(--green-dim);
+}
+
+.actual-stat {
+    display: block;
+    font-size: 2rem;
+}
