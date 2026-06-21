@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 function App() {
 
+  const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
   const [chosenCharacters, setChosenCharacters] = useState([]);
   const [characters, setCharacters] = useState(
     [
@@ -67,11 +69,17 @@ function App() {
 
   function handleClick(id) {
     if (chosenCharacters.includes(id)) {
+      if (score > bestScore) {
+        setBestScore(score);
+      }
+      setScore(0);
+      setChosenCharacters([]);
       alert("You already clicked on that character!");
     } else {
       setChosenCharacters((prevChars) => {
         return [...prevChars, id ];
       });
+      setScore(prevScore => prevScore + 1);
       shuffle(characters);
     }
   }
@@ -89,6 +97,10 @@ function App() {
   return (
     <>
       <h1>Hunter x Recall</h1>
+      <div className="scoreBoard">
+        <p>Score: {score}</p>
+        <p>Best Score: {bestScore > 0 ? bestScore : score}</p>
+      </div>
       <ul>
         {characters.map((char) => {
           return <li onClick={() => handleClick(char.id)} key={char.id}>
