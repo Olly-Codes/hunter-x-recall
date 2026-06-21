@@ -32,6 +32,7 @@ function App() {
   
   useEffect(() => {
     if (score === characters.length) {
+      setBestScore(score)
       setIsWinner(true);
     }
   }, [score]);
@@ -67,6 +68,7 @@ function App() {
 
   function handleReset() {
     setScore(0);
+    setBestScore(0);
     setChosenCharacters([]);
     setIsWinner(false);
   }
