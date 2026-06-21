@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import ScoreBoard from "./components/ScoreBoard";
 import Board from "./components/Board";
-import WinnerModal from "./components/WinnerModal";
 import Header from "./components/Header";
 import "./styles/styles.css";
 
@@ -66,7 +65,7 @@ function App() {
     ]
   );
   useEffect(() => {
-    if (score === characters.length) {
+    if (score === 1) {
       setIsWinner(true);
     }
   }, [score]);
@@ -109,8 +108,12 @@ function App() {
     <>
       <Header />
       <ScoreBoard score={score} bestScore={bestScore}/>
-      <Board characters={characters} handleClick={handleClick} />
-      {isWinner ? <WinnerModal handleReset={handleReset} /> : ""}
+      <Board 
+        characters={characters} 
+        handleClick={handleClick}
+        isWinner={isWinner}
+        handleReset={handleReset} 
+      />
     </>
   )
 }

@@ -1,4 +1,6 @@
-function Board({ characters, handleClick }) {
+import WinnerModal from "./WinnerModal";
+
+function Board({ characters, handleClick, handleReset, isWinner }) {
     return (
         <>
             <ul className="board">
@@ -12,6 +14,7 @@ function Board({ characters, handleClick }) {
                         </li>
                     )
                 })}
+                {isWinner && <WinnerModal handleReset={handleReset} />}
             </ul>
         </>
     )
