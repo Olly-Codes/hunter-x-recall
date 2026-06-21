@@ -1,10 +1,17 @@
-function WinnerModal({ handleReset }) {
+function WinnerModal({ handleReset, score }) {
     return (
         <>
-            <div className="winner-modal">
-                <h2>You win!</h2>
-                <div className="winner-img"></div>
-                <button onClick={handleReset}>Play Again</button>
+            <div className="overlay">
+                <div className="winner-modal">
+                    <p className="h-assoc">Hunter Association &bull; Result</p>
+                    <p>Every candidate recalled without error</p>
+                    <p>You may proceed to the next exam</p>
+                    <div className="score-wrapper">
+                        <p className="final-text">Final Record</p>
+                        <p>{score}</p>
+                    </div>
+                    <button onClick={handleReset}>Retake the trial</button>
+                </div>
             </div>
         </>
     )
