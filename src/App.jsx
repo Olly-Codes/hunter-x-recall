@@ -11,60 +11,25 @@ function App() {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [chosenCharacters, setChosenCharacters] = useState([]);
-  const [characters, setCharacters] = useState(
-    [
-      {
-        id: 10,
-        name: "Gon",
-        image: "/gon.webp"
-      },
-      {
-        id: 20,
-        name: "Goku",
-        image: "/gon.webp"
-      },
-      {
-        id: 30,
-        name: "Freeza",
-        image: "/gon.webp"
-      },
-      {
-        id: 40,
-        name: "Vegeta",
-        image: "/gon.webp"
-      },
-      {
-        id: 50,
-        name: "Gohan",
-        image: "/gon.webp"
-      },
-      {
-        id: 89,
-        name: "Krillin",
-        image: "/gon.webp"
-      },
-      {
-        id: 90,
-        name: "Tien",
-        image: "/gon.webp"
-      },
-      {
-        id: 71,
-        name: "Buu",
-        image: "/gon.webp"
-      },
-      {
-        id: 87,
-        name: "Nappa",
-        image: "/gon.webp"
-      },
-      {
-        id: 3,
-        name: "Android-18",
-        image: "/gon.webp"
-      },
-    ]
-  );
+  const [characters, setCharacters] = useState([]);
+
+  useEffect(() => {
+    fetch(url)
+    .then((res) => res.json())
+    .then((result) => {
+      const top10 = result.data.slice(0, 10).map((char) => {
+        return {
+          id: char.character.mal_id,
+          name: char.character.name,
+          image: char.character.images.webp.image_url
+        }
+      });
+
+      setCharacters(top10);
+    })
+    .catch((error) => console.error(error));
+  }, []);
+  
   useEffect(() => {
     if (score === characters.length) {
       setIsWinner(true);
