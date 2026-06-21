@@ -127,7 +127,7 @@ body, html {
 .char-card {
     width: 250px;
     height: 300px;
-    padding: 10px;
+    padding: 15px;
     border-radius: 5px;
     border: 1px solid var(--green-border);
 
@@ -155,12 +155,17 @@ body, html {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    display: block;
+    border-radius: 5px
 }
 
 .char-name {
-    text-align: center;
+    width: 100%;
+    padding: 10px 5px;
     color: var(--text-primary);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;    
 }
 
 /* ----- MODAL */
