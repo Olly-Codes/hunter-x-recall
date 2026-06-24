@@ -232,6 +232,38 @@ body, html {
     background-color: var(--green-dim);
 }
 
+.loading-wrapper {
+    width: 400px;
+    margin: 0 auto;
+    color: var(--text-primary);
+    border-radius: 5px;
+
+    padding: 40px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loading-wrapper p {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.loading-img-wrapper {
+    width: 400px;
+    height: auto;
+    padding: 20px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.loading-img-wrapper img {
+    width: 200px;
+    height: 200px;
+}
+
 /* ----- MEDIA QUERIES */
 @media only screen and (max-width: 768px) {
     .header {
@@ -278,5 +310,18 @@ body, html {
 
     .overlay {
         padding: 0 20px;
+    }
+
+    .loading-wrapper {
+        width: auto;
+    }
+
+    .loading-img-wrapper {
+        width: auto;
+    }
+
+    .-loading-img-wrapper img {
+        width: 150px;
+        height: 150px;
     }
 }
