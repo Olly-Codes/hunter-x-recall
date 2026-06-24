@@ -4,6 +4,7 @@ import Board from "./components/Board";
 import Header from "./components/Header";
 import WinnerModal from "./components/WinnerModal";
 import "./styles/styles.css";
+import Loading from "./components/Loading";
 
 function App() {
 
@@ -12,10 +13,17 @@ function App() {
   const [bestScore, setBestScore] = useState(0);
   const [chosenCharacters, setChosenCharacters] = useState([]);
   const [characters, setCharacters] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(url)
-    .then((res) => res.json())
+    .then((res) => {
+      if (res.status >= 400) {
+        throw new Error("Server error");
+      }
+      return res.json();
+    })
     .then((result) => {
       const top10 = result.data.slice(0, 10).map((char) => {
         return {
@@ -27,7 +35,8 @@ function App() {
 
       setCharacters(top10);
     })
-    .catch((error) => console.error(error));
+    .catch((error) => setError(error))
+    .finally(() => setLoading(false));
   }, []);
   
   useEffect(() => {
@@ -79,10 +88,14 @@ function App() {
         score={score} 
         bestScore={bestScore} 
       />
-      <Board 
+      {loading ? (
+        <Loading />
+      ) : (
+        <Board 
         characters={characters} 
         handleClick={handleClick}
       />
+      )}
       {isWinner && <WinnerModal score={score} handleReset={handleReset} />}
     </>
   )
